@@ -6,6 +6,10 @@
 5. Change the default ssh port to another port. Change the firewall and selinux configuration accordingly. [Reference](https://kifarunix.com/how-to-configure-ssh-to-use-a-different-port-on-centos-7/).
 6. Run the docker-compose.yml file to run all three containers.
 7. "scp" the tar backup in /srv/docker/gitlab/gitlab/backups
-8. using following command drop in the gitlab's container.
-  docker exec -it <containername> bash
-
+8. Using following command drop in the gitlab's container. <br />
+<code> docker exec -it <containername> bash </code>
+9. Go to the backups directory in the container and change the owner for the backups' Tar file.<br/>
+<code> chown git:git <backup.tar> <code>
+10. Exit the container and change to the docker-compose.yml file's directory.
+11. Run the backup restore command.<br/>
+<code> docker-compose run --rm gitlab app:rake gitlab:backup:restore BACKUP=<Backup-file-name></code>
