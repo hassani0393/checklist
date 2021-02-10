@@ -4,7 +4,7 @@
 2. Take backup from gitlab in the form of a tar archive.
 3. In the new machine, clone the old version of the [Sameersbn project](https://github.com/sameersbn/docker-gitlab/blob/13.8.2/README.md) (the one currently being used.)
 4. Copy the contents of the old gitlab’s docker-compose.yml file into the new machine’s docker-compose.yml file.
-5. Change the default ssh port to another port. Change the firewall and selinux configuration accordingly and reboot the system. [Reference](https://kifarunix.com/how-to-configure-ssh-to-use-a-different-port-on-centos-7/)
+5. Change the default SSH port to another one. Change the firewall and selinux configuration accordingly and reboot the system. [Reference](https://kifarunix.com/how-to-configure-ssh-to-use-a-different-port-on-centos-7/)
 6. Run the docker-compose.yml file to run all three containers.
 7. "scp" the tar backup in /srv/docker/gitlab/gitlab/backups
 8. Using following command drop in the gitlab's container. <br />
@@ -23,4 +23,10 @@ Voila
 
 ## FAQ
 * Q. Why not upgrade Gitlab first and then restore the backup tar file? <br/>
-  A. You will get a version mismatch error.
+  A. You will get a version mismatch error during restoration.
+* Q. During running of the docker-compose.yml file, Gitlab container stays forever in configuration phase. <br/>
+  A. Gitlab container can not connect to other two containers. Check docker network configs in .yml file.
+* Q. Restoration of the Tar file is stuck. <br/>
+  A. It probably isn't. It is just very slow. I suggest you lock your workstation and leave if for a while.
+* Q. When running the docker-compose file, I get an error stating 0.0.0.0:22 is already in use.
+  A. Refer to step 5. SSH is using the port used by Gitlab.
