@@ -10,6 +10,11 @@
 <code> docker exec -it <containername> bash </code>
 9. Go to the backups directory in the container and change the owner for the backups' Tar file.<br/>
 <code> chown git:git backup.tar </code>
-10. Exit the container and change to the docker-compose.yml file's directory.
-11. Run the backup restore command.<br/>
+10. Exit the container and scp the contents of the /srv/docker/gitlab/gitlab/ssh , from the old server to the new server.
+11. change to the docker-compose.yml file's directory.
+12. Run the backup restore command.<br/>
 <code> docker-compose run --rm gitlab app:rake gitlab:backup:restore BACKUP=Backup-file-name</code>
+13. Run docker-compose.yml
+14. Edit the docker-compose.yml , only change the versions of the 3 old images to new versions.
+15. Run the docker-compose.yml file.
+Voila
