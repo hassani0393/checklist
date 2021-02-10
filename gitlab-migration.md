@@ -9,7 +9,7 @@
 8. Using following command drop in the gitlab's container. <br />
 <code> docker exec -it <containername> bash </code>
 9. Go to the backups directory in the container and change the owner for the backups' Tar file.<br/>
-<code> chown git:git <backup.tar> <code>
+<code> chown git:git <backup.tar> </code>
 10. Exit the container and change to the docker-compose.yml file's directory.
 11. Run the backup restore command.<br/>
 <code> docker-compose run --rm gitlab app:rake gitlab:backup:restore BACKUP=<Backup-file-name></code>
