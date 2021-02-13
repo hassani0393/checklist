@@ -27,6 +27,6 @@ Voila
 * Q. During running of the docker-compose.yml file, Gitlab container stays forever in configuration phase. <br/>
   A. Gitlab container can not connect to other two containers. Check docker network configs in .yml file.
 * Q. Restoration of the Tar file is stuck. <br/>
-  A. It probably isn't. It is just very slow. I suggest you lock your workstation and leave if for a while.
-* Q. When running the docker-compose file, I get an error stating 0.0.0.0:22 is already in use.
+  A. It probably isn't. It is just very slow. I suggest you lock your workstation and leave it for a while.
+* Q. When running the docker-compose file, I get an error stating 0.0.0.0:22 is already in use. </br>
   A. Refer to step 5. SSH is using the port used by Gitlab.
