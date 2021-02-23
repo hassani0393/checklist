@@ -1,4 +1,4 @@
-# Gitlab Migration from 12.x version to 13.x Version 
+# Gitlab Migration to 13.x Version 
 ## Steps
 1. Take a snapshot of the current and the fresh gitlab machines for further recovery in case of failure.
 2. Take backup from gitlab in the form of a tar archive.
